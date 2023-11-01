@@ -1,0 +1,23 @@
+.header {
+    color: white;
+}
+/* Editando a responsividade do Header*/
+
+.card-custom {
+    background-color: #fcfaf6;
+}
+#menu-toggle {
+    cursor: pointer;
+}
+
+#menu-toggle svg {
+    fill: #333; /* Cor do ícone do menu */
+}
+
+#menu-toggle.open svg {
+    transform: rotate(90deg); /* Rotação do ícone quando o menu está aberto */
+}
+
+#menu-toggle.open + nav {
+    display: block; /* Mostra o menu quando o botão está aberto */
+}
