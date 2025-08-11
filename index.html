@@ -1,154 +1,963 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="src/style.css"> 
-    <link rel="icon" href="img/sign.png" type="image/x-icon">
-    <title>Le cafe</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portal Le Cafe - Conheça os diferentes tipos de café e grãos, acompanhados de uma playlist especial para degustação." />
+  <meta name="keywords" content="café, tipos de café, grãos de café, espresso, cappuccino, latte, arábica, robusta" />
+  <meta name="author" content="Le Cafe Portal" />
+  <meta property="og:title" content="Le Cafe Portal" />
+  <meta property="og:description" content="Descubra o mundo dos cafés especiais" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lecafeportal.com" />
+  <meta property="og:image" content="https://lecafeportal.com/img/poster.jpg" />
+  
+  <title>Le Cafe Portal | Tipos de Café e Grãos Especiais</title>
+  
+  <!-- Preload das fontes e imagens críticas -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" as="style" />
+  <link rel="preload" href="img/poster.jpg" as="image" />
+  <link rel="preload" href="img/sign.png" as="image" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="icon" href="img/sign.png" type="image/x-icon" />
+  <link rel="canonical" href="https://lecafeportal.com" />
 </head>
-<body>
+<body class="bg-gray-100">
 
-    <!-- Seção de Header -->
-<!-- Seção de Header -->
-<section>
-    <header class="mx-auto h-screen bg-poster xl:w-full" style="background-image: url('img/poster.jpg'); background-size: cover; background-position: center">
-        <div class="p-4 lg:px-8">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <img src="img/sign.png" alt="Logo" class="w-10 h-10 mr-2">
-                    <div class="text-white text-2xl font-bold">Le Cafe Portal</div>
-                </div>
-                <!-- Botão do Acordeão Responsivo -->
-                <button id="accordion-toggle" class="md:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <nav id="accordion" class="md:flex flex-col space-x-4 md:space-x-0">
-                    <ul class="flex md:flex-col space-x-4 md:space-x-0">
-                        <li><a href="#" class="text-white hover:text-gray-300">Contato</a></li>
-                        <li><a href="#" class="text-white hover:text-gray-300" id="toggleAccordion">Tipos de Cafés</a></li>
-                    </ul>
-                </nav>
+  <!-- Header Redesign -->
+  <header class="relative h-screen overflow-hidden">
+    <!-- Video background como alternativa mais dinâmica -->
+    <div class="absolute inset-0 z-0">
+      <!-- Imagem de fallback caso o vídeo não carregue -->
+      <img 
+        src="img/poster.jpg" 
+        alt="Café fresco em uma xícara sobre mesa de madeira" 
+        class="absolute w-full h-full object-cover object-center"
+        loading="eager"
+        width="1920"
+        height="1080"
+      />
+      <!-- Overlay escuro -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70"></div>
+    </div>
+    
+    <!-- Conteúdo do Header -->
+    <div class="relative z-10 h-full flex flex-col">
+      <!-- Barra de navegação -->
+      <nav class="px-4 py-6 sm:px-8 lg:px-12">
+        <div class="flex justify-between items-center">
+          <!-- Logo com animação -->
+          <a href="#" class="flex items-center group" aria-label="Página inicial">
+            <div class="mr-3 transition-transform duration-300 group-hover:rotate-12">
+              <img 
+                src="img/sign.png" 
+                alt="Logo Le Cafe" 
+                class="w-12 h-12"
+                width="48"
+                height="48"
+                loading="eager"
+              />
             </div>
+            <h1 class="text-2xl font-bold text-white select-none">
+              <span class="block font-cursive text-3xl text-amber-200">Le Cafe</span>
+              <span class="block text-sm font-sans tracking-widest text-gray-300">PORTAL</span>
+            </h1>
+          </a>
 
-            <div class="header-content flex flex-col lg:flex-row justify-center items-center p-8">
-                <div class="w-full lg:w-1/2 text-center lg:text-right">
-                    <h1 class="text-3xl text-white font-bold mb-4">Bem-vindo ao Le Cafe Portal</h1>
-                    <p class="text-white">Aqui você pode desfrutar da melhor música enquanto aprende sobre os diferentes tipos de café. Dê o play na nossa playlist e explore o mundo dos cafés!</p>
-                </div>
-                <div class="mr-4 w-full lg:w-1/2 text-center pr-4 mt-4 lg:mt-0">
-                    <iframe style="border-radius: 12px;" src="https://open.spotify.com/embed/playlist/6U80fRAACbhpGgnxlis0ex?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </div>
-            </div>
+          <!-- Menu desktop -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#tipos-cafe" class="text-white hover:text-amber-200 transition-colors duration-300 font-medium text-lg relative group">
+              Tipos de Café
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-200 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#contato" class="text-white hover:text-amber-200 transition-colors duration-300 font-medium text-lg relative group">
+              Contato
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-200 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#" class="flex items-center text-white hover:text-amber-200 transition-colors duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Botão do menu mobile -->
+          <button
+            id="mobile-menu-button"
+            aria-label="Menu mobile"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            class="md:hidden p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-amber-200"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
-    </header>
-</section>
-
-
-    <!-- Section Types of Coffee -->
-    <section class="bg-gray-200 py-8">
-        <div class="container mx-auto">
-            <h1 class="text-3xl font-bold mt-4 mb-4 px-4">Tipos de Café</h1>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Card 1 -->
-                <div class="card-custom p-4 rounded shadow" alt="cards">
-                    <img src="img/expresso.webp" alt="Café Espresso" class="w-full h-32 object-cover mt-2 mb-2 px-2">
-                    <h2 class="text-xl font-semibold mt-4 mb-4 px-2">Espresso</h2>
-                        <p class="px-2"> O espresso é o <b>café puro</b> e feito <b>sob pressão</b>, sem adição de leite ou qualquer outro ingrediente. 
-                            Quando bem feito, ele apresenta duas camadas: a bebida e seu <b>creme (espuma)</b>.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="card-custom p-4 rounded shadow">
-                    <img src="img/americano.jpg" alt="Café Americano" class="w-full h-32 object-cover mt-2 mb-2 px-2">
-                    <h2 class="text-xl font-semibold mt-4 mb-2 px-2">Americano</h2>
-                        <p class="px-2">É conhecido pela adição de <b>água quente</b> no café, dando uma força semelhante, mas sabor diferente, do café expresso. A força de um Americano varia com o número de colheres de café e da quantidade de água adicionada.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="card-custom p-4 rounded shadow">
-                    <img src="img/latte.jpg" alt="Café Latte" class="w-full h-32 object-cover mt-2 mb-2 px-2">
-                    <h2 class="text-xl font-semibold mt-4 mb-2 px-2">Latte</h2>
-                        <p class="px-2">O latte é uma bebida de café espresso delicadamente misturada com <b>leite vaporizado</b> e uma pequena quantidade de <b>espuma de leite</b>. Geralmente é servido em um copo grande.</p>
-                </div>
-                <!-- Card 4 -->
-                <div class="card-custom p-4 rounded shadow">
-                    <img src="img/capuccino.jpg" alt="Café Cappuccino" class="w-full h-32 object-cover mt-2 mb-2 px-2">
-                    <h2 class="text-xl font-semibold mt-4 mb-2 px-2">Cappuccino</h2>
-                        <p class="px-2">O cappuccino é uma deliciosa invenção italiana, que mistura o <b>café espresso</b> com <b>leite vaporizado</b>, resultando em um creme bem consistente.</p>
-                </div>
-            </div>
+        
+        <!-- Menu mobile (hidden por padrão) -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 py-4 px-6 bg-black/80 rounded-lg backdrop-blur-sm">
+          <div class="flex flex-col space-y-4">
+            <a href="#tipos-cafe" class="text-white hover:text-amber-200 text-lg py-2 border-b border-gray-700">Tipos de Café</a>
+            <a href="#contato" class="text-white hover:text-amber-200 text-lg py-2 border-b border-gray-700">Contato</a>
+          </div>
         </div>
-    </section>
+      </nav>
 
-    <!-- Section Types of Coffee Beans -->
-    <section class="bg-gray-200 py-8">
-        <div class="container mx-auto">
-            <h1 class="text-3xl font-bold mt-4 mb-4 px-4">Tipos de Grãos</h1>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Card 1 -->
-                <div class="card-custom p-4 rounded shadow" alt="cards">
-                    <img src="img/beans/arabica.jpg" alt="Café Arabica" class="w-full h-32 object-cover mt-2 mb-2 px-2">
-                    <h2 class="text-xl font-semibold mt-4 mb-4 px-2">Arábica</h2>
-                        <p class="px-2"> O café Arábica possui um <b>teor de cafeína mais baixo</b>, mas tem um sabor suave, ligeiramente ácido e naturalmente adocicado. Isso se deve pois seus grãos possuem uma concentração de açúcares muito grande.</p>
-                    <!-- Button Card -->
-                    <button class="bg-gray-900 
-                    hover:bg-gray-200 text-white font-bold m-2 mt-2 py-2 px-4 border-b-4 border-gray-200 
-                    hover:text-gray-900 bg-gray-200  transition rounded hover:border-gray-900">
-                        Saber Mais
-                      </button>
-                </div>
-                <!-- Card 2 -->
-                <div class="card-custom p-4 rounded shadow">
-                    <img src="img/beans/robusta.jpg" alt="Café Robusta" class="w-full h-32 object-cover mt-2 mb-2 px-2">
-                    <h2 class="text-xl font-semibold mt-4 mb-2 px-2">Robusta</h2>
-                        <p class="px-2">Quando comparado ao Arábica, podemos afirmar que o Robusta possui o dobro de cafeína, o que faz com que ele seja considerado forte. As bebidas feitas com esse tipo de grão apresentam corpo pesado, por conta das notas mais amargas, baixa acidez e textura suave.</p>
-                    <!-- Button Card -->
-                    <button class="bg-gray-900 
-                    hover:bg-gray-200 text-white font-bold m-2 mt-2 py-2 px-4 border-b-4 border-gray-200 
-                    hover:text-gray-900 bg-gray-200  transition rounded hover:border-gray-900">
-                        Saber Mais
-                      </button>
-                </div>
-                <!-- Card 3 -->
-                <div class="card-custom p-4 rounded shadow">
-                    <img src="img/beans/acaia.png" alt="Café Acaia" class="w-full h-32 object-cover mt-2 mb-2 px-2">
-                    <h2 class="text-xl font-semibold mt-4 mb-2 px-2">Acaiá</h2>
-                        <p class="px-2">O café Acaiá é uma variedade do Arábica, caracterizado pelo tamanho maior do grão. “Acaiá” significa “frutos com sementes grandes” em tupi-guarani. É encontrado em áreas acima de 800m do nível do mar. Resulta em um café suave e com acidez mediana e gosto frutado.</p>
-                    <!-- Button Card -->
-                    <button class="bg-gray-900 
-                    hover:bg-gray-200 text-white font-bold m-2 mt-2 py-2 px-4 border-b-4 border-gray-200 
-                    hover:text-gray-900 bg-gray-200  transition rounded hover:border-gray-900">
-                        Saber Mais
-                      </button>
-                </div>
-                <!-- Card 4 -->
-                <div class="card-custom p-4 rounded shadow">
-                    <img src="img/beans/kona.jpg" alt="Café Kona" class="w-full h-32 object-cover mt-2 mb-2 px-2">
-                    <h2 class="text-xl font-semibold mt-4 mb-2 px-2">Kona</h2>
-                        <p class="px-2">O café Kona é localizado na cidade de Kona, no <b>Havaí</b>, uma região com características especiais de solo por conta do <b>colo vulcânico.</b>O sabor desse tipo é de frutas, e traz uma sensação aveludada à boca.</p>
-                    <!-- Button Card -->
-                    <button class="bg-gray-900 
-                    hover:bg-gray-200 text-white font-bold m-2 mt-2 py-2 px-4 border-b-4 border-gray-200 
-                    hover:text-gray-900 bg-gray-200  transition rounded hover:border-gray-900">
-                        Saber Mais
-                      </button>
-                </div>
+      <!-- Conteúdo principal do header -->
+      <div class="flex-grow flex items-center px-4 sm:px-8 lg:px-12">
+        <div class="max-w-7xl mx-auto w-full">
+          <div class="flex flex-col lg:flex-row items-center gap-12">
+            <!-- Texto e CTA -->
+            <div class="lg:w-1/2 text-center lg:text-left">
+              <div class="mb-6">
+                <span class="inline-block px-3 py-1 text-sm font-semibold text-amber-100 bg-amber-800/30 rounded-full backdrop-blur-sm mb-4">
+                  Desde 2023
+                </span>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  A <span class="text-amber-200">arte</span> do café em cada detalhe
+                </h2>
+                <p class="text-lg md:text-xl text-gray-200 max-w-lg mx-auto lg:mx-0 mb-8">
+                  Descubra a riqueza de sabores, aromas e histórias por trás de cada xícara. Nossa playlist exclusiva acompanha sua jornada sensorial.
+                </p>
+              </div>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a 
+                  href="#tipos-cafe" 
+                  class="px-8 py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-500/20 text-center"
+                  aria-label="Explorar tipos de café"
+                >
+                  Explorar Cafés
+                </a>
+                <a 
+                  href="#" 
+                  class="px-8 py-3 bg-transparent border-2 border-amber-600 text-amber-200 hover:bg-amber-600/10 font-bold rounded-lg transition-all duration-300 transform hover:scale-105 text-center"
+                  aria-label="Conhecer nossa história"
+                >
+                  Nossa História
+                </a>
+              </div>
             </div>
+            
+            <!-- Player de música -->
+            <div class="lg:w-1/2 mt-12 lg:mt-0 px-4 lg:px-0">
+              <div class="bg-black/40 p-6 rounded-2xl backdrop-blur-md border border-gray-700/30 shadow-xl">
+                <div class="flex items-center mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                  </svg>
+                  <h3 class="text-xl font-bold text-white">Playlist Exclusiva</h3>
+                </div>
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWVqfgj8NZEp1?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+      
+      <!-- Indicador de scroll -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <a href="#tipos-cafe" aria-label="Rolar para a próxima seção">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white opacity-80 hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <!-- Seção de Footer -->
-    <section class="bg-gray-200 py-4">
-        <footer class="container mx-auto">
-            <div class="text-center text-gray-600">
-                &copy; 2023 Tipos de Café. Todos os direitos reservados.
+  <!-- Section: Tipos de Café -->
+  <section id="tipos-cafe" class="py-16 bg-white">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-sm font-semibold tracking-wider text-gray-500 uppercase">Variedades</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Tipos de Café</h2>
+        <div class="mt-4 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-600">
+            Conheça as diferentes formas de preparo e apreciação do café
+          </p>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- Card 1 -->
+        <article
+          class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          aria-labelledby="espresso-title"
+        >
+          <div class="h-48 overflow-hidden">
+            <img
+              src="img/expresso.webp"
+              alt="Xícara de Café Espresso sobre mesa de madeira"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              width="300"
+              height="192"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h3 id="espresso-title" class="text-xl font-semibold mb-3 text-gray-900">Espresso</h3>
+            <p class="text-gray-600">
+              O espresso é o <strong class="text-gray-800">café puro</strong> feito <strong class="text-gray-800">sob pressão</strong>,
+              sem adição de leite ou outro ingrediente. Quando bem feito, apresenta duas
+              camadas: a bebida e seu <strong class="text-gray-800">creme (espuma)</strong>.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article
+          class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          aria-labelledby="americano-title"
+        >
+          <div class="h-48 overflow-hidden">
+            <img
+              src="img/americano.jpg"
+              alt="Xícara de Café Americano com grãos ao lado"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              width="300"
+              height="192"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h3 id="americano-title" class="text-xl font-semibold mb-3 text-gray-900">Americano</h3>
+            <p class="text-gray-600">
+              Conhecido pela adição de <strong class="text-gray-800">água quente</strong> ao café,
+              resultando em sabor diferente do espresso. A intensidade varia com a
+              quantidade de café e água.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article
+          class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          aria-labelledby="latte-title"
+        >
+          <div class="h-48 overflow-hidden">
+            <img
+              src="img/latte.jpg"
+              alt="Copo de Café Latte com arte na espuma"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              width="300"
+              height="192"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h3 id="latte-title" class="text-xl font-semibold mb-3 text-gray-900">Latte</h3>
+            <p class="text-gray-600">
+              Bebida feita com café espresso e <strong class="text-gray-800">leite vaporizado</strong>, com
+              uma pequena camada de espuma de leite. Servido geralmente em copo grande.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article
+          class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          aria-labelledby="cappuccino-title"
+        >
+          <div class="h-48 overflow-hidden">
+            <img
+              src="img/capuccino.jpg"
+              alt="Xícara de Café Cappuccino com canela polvilhada"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              width="300"
+              height="192"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h3 id="cappuccino-title" class="text-xl font-semibold mb-3 text-gray-900">Cappuccino</h3>
+            <p class="text-gray-600">
+              Invenção italiana que mistura café espresso com leite vaporizado,
+              criando um creme consistente e saboroso.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Tipos de Grãos -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-sm font-semibold tracking-wider text-gray-500 uppercase">Origem</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Tipos de Grãos</h2>
+        <div class="mt-4 max-w-2xl mx-auto">
+          <p class="text-lg text-gray-600">
+            Descubra a diversidade de sabores a partir da origem dos grãos
+          </p>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- Card 1 -->
+        <article
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          aria-labelledby="arabica-title"
+        >
+          <div class="h-48 overflow-hidden">
+            <img
+              src="img/beans/arabica.jpg"
+              alt="Grãos de Café Arábica em close-up"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              width="300"
+              height="192"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h3 id="arabica-title" class="text-xl font-semibold mb-3 text-gray-900">Arábica</h3>
+            <p class="text-gray-600 mb-4">
+              Possui <strong class="text-gray-800">menos cafeína</strong> e sabor suave, ligeiramente ácido e
+              adocicado, devido à alta concentração de açúcares nos grãos.
+            </p>
+            <button
+              class="w-full bg-gray-900 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+              type="button"
+              aria-label="Saiba mais sobre Café Arábica"
+            >
+              Saber Mais
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          aria-labelledby="robusta-title"
+        >
+          <div class="h-48 overflow-hidden">
+            <img
+              src="img/beans/robusta.jpg"
+              alt="Grãos de Café Robusta torrados"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              width="300"
+              height="192"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h3 id="robusta-title" class="text-xl font-semibold mb-3 text-gray-900">Robusta</h3>
+            <p class="text-gray-600 mb-4">
+              Possui o dobro de cafeína comparado ao Arábica, com sabor mais forte, corpo
+              pesado, amargor e baixa acidez.
+            </p>
+            <button
+              class="w-full bg-gray-900 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+              type="button"
+              aria-label="Saiba mais sobre Café Robusta"
+            >
+              Saber Mais
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          aria-labelledby="acaia-title"
+        >
+          <div class="h-48 overflow-hidden">
+            <img
+              src="img/beans/acaia.png"
+              alt="Grãos de Café Acaiá selecionados"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              width="300"
+              height="192"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h3 id="acaia-title" class="text-xl font-semibold mb-3 text-gray-900">Acaiá</h3>
+            <p class="text-gray-600 mb-4">
+              Variedade do Arábica, com grãos maiores, sabor suave e acidez mediana,
+              notas frutadas.
+            </p>
+            <button
+              class="w-full bg-gray-900 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+              type="button"
+              aria-label="Saiba mais sobre Café Acaiá"
+            >
+              Saber Mais
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          aria-labelledby="kona-title"
+        >
+          <div class="h-48 overflow-hidden">
+            <img
+              src="img/beans/kona.jpg"
+              alt="Grãos de Café Kona havaiano"
+              class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              width="300"
+              height="192"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <h3 id="kona-title" class="text-xl font-semibold mb-3 text-gray-900">Kona</h3>
+            <p class="text-gray-600 mb-4">
+              Cultivado em solo vulcânico do Havaí, com sabor frutado e textura aveludada.
+            </p>
+            <button
+              class="w-full bg-gray-900 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+              type="button"
+              aria-label="Saiba mais sobre Café Kona"
+            >
+              Saber Mais
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Monte seu Café Perfeito (Gamificado) -->
+  <section class="py-16 bg-amber-50">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Monte seu café perfeito</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Personalize sua experiência de café com nossas opções interativas
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Interface interativa -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg">
+          <div class="mb-6">
+            <label class="block text-lg font-medium text-gray-800 mb-3">Tipo de Grão</label>
+            <div class="grid grid-cols-2 gap-4">
+              <button class="coffee-option active flex flex-col items-center p-3 border-2 border-amber-200 rounded-lg transition-all duration-200 hover:bg-amber-50" data-type="bean" data-value="arabica">
+                <img src="img/beans/arabica.jpg" alt="Arábica" class="w-full h-24 object-cover rounded-lg mb-2">
+                <span class="font-medium text-gray-800">Arábica</span>
+                <span class="text-xs text-gray-500 mt-1">Suave e aromático</span>
+              </button>
+              <button class="coffee-option flex flex-col items-center p-3 border-2 border-gray-200 rounded-lg transition-all duration-200 hover:bg-amber-50" data-type="bean" data-value="robusta">
+                <img src="img/beans/robusta.jpg" alt="Robusta" class="w-full h-24 object-cover rounded-lg mb-2">
+                <span class="font-medium text-gray-800">Robusta</span>
+                <span class="text-xs text-gray-500 mt-1">Forte e encorpado</span>
+              </button>
             </div>
-        </footer>
-    </section>
+          </div>
+          
+          <div class="mb-6">
+            <label class="block text-lg font-medium text-gray-800 mb-3">Método de Preparo</label>
+            <div class="space-y-3">
+              <button class="method-option active w-full text-left px-4 py-3 bg-amber-100 border-2 border-amber-300 rounded-lg transition" data-type="method" data-value="espresso">
+                <span class="font-medium">Espresso</span>
+                <span class="block text-sm text-gray-600 mt-1">Intenso e cremoso</span>
+              </button>
+              <button class="method-option w-full text-left px-4 py-3 bg-gray-100 hover:bg-amber-50 border-2 border-transparent rounded-lg transition" data-type="method" data-value="french-press">
+                <span class="font-medium">French Press</span>
+                <span class="block text-sm text-gray-600 mt-1">Encorpado e aromático</span>
+              </button>
+              <button class="method-option w-full text-left px-4 py-3 bg-gray-100 hover:bg-amber-50 border-2 border-transparent rounded-lg transition" data-type="method" data-value="pour-over">
+                <span class="font-medium">Pour Over</span>
+                <span class="block text-sm text-gray-600 mt-1">Delicado e equilibrado</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <label class="block text-lg font-medium text-gray-800 mb-3">Intensidade</label>
+            <input type="range" min="1" max="5" value="3" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-amber-600" id="intensity-range">
+            <div class="flex justify-between text-sm text-gray-600 mt-2">
+              <span>Suave</span>
+              <span>Médio</span>
+              <span>Forte</span>
+            </div>
+          </div>
 
-<script src="src/menu.js"></script>
+          <div class="mb-6">
+            <label class="block text-lg font-medium text-gray-800 mb-3">Adicionais</label>
+            <div class="flex flex-wrap gap-3">
+              <button class="addon-option px-4 py-2 bg-gray-100 hover:bg-amber-100 rounded-full transition" data-addon="leite">
+                <span class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h6m-6 3h6m-6 3h6M6.2 21h11.6c1.12 0 1.68 0 2.108-.218a2 2 0 00.874-.874C21 19.48 21 18.92 21 17.8V10.2c0-1.12 0-1.68-.218-2.108a2 2 0 00-.874-.874C19.48 7 18.92 7 17.8 7H6.2c-1.12 0-1.68 0-2.108.218a2 2 0 00-.874.874C3 8.52 3 9.08 3 10.2v7.6c0 1.12 0 1.68.218 2.108a2 2 0 00.874.874C4.52 21 5.08 21 6.2 21z" />
+                  </svg>
+                  Leite
+                </span>
+              </button>
+              <button class="addon-option px-4 py-2 bg-gray-100 hover:bg-amber-100 rounded-full transition" data-addon="acucar">
+                <span class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Açúcar
+                </span>
+              </button>
+              <button class="addon-option px-4 py-2 bg-gray-100 hover:bg-amber-100 rounded-full transition" data-addon="canela">
+                <span class="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                  </svg>
+                  Canela
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center">
+          <div class="flex flex-col items-center">
+            <div class="relative">
+                <img src="img/coffee_cup.webp" alt="Xícara de café" class="w-120 h-64 object-contain mx-auto" id="coffee-cup">
+            </div>
+            <div class="text-center mt-4 w-full">
+                <h3 class="text-xl font-bold text-gray-800" id="coffee-result-name">Espresso de Arábica</h3>
+                <p class="text-gray-600" id="coffee-result-desc">Sabor suave com notas frutadas e acidez equilibrada</p>
+            </div>
+            <div class="mt-6 flex justify-center space-x-4">
+              <div class="bg-white p-3 rounded-lg shadow-sm">
+                <span class="block text-sm text-gray-500">Intensidade</span>
+                <div class="flex mt-1">
+                  <span class="text-amber-600 text-lg">☕</span>
+                  <span class="text-amber-600 text-lg">☕</span>
+                  <span class="text-amber-600 text-lg">☕</span>
+                  <span class="text-gray-300 text-lg">☕</span>
+                  <span class="text-gray-300 text-lg">☕</span>
+                </div>
+              </div>
+              <div class="bg-white p-3 rounded-lg shadow-sm">
+                <span class="block text-sm text-gray-500">Adicionais</span>
+                <div class="flex mt-1 space-x-1" id="selected-addons">
+                  <span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">Nenhum</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="mt-8 px-8 py-3 bg-amber-600 hover:bg-amber-700 text-black font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg">
+            Compartilhe sua criação
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Seção: Linha do Tempo da História do Café -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">A Jornada do Café</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Conheça a fascinante história por trás da bebida mais amada do mundo
+        </p>
+      </div>
+      
+      <div class="relative">
+        <!-- Linha vertical -->
+        <div class="absolute left-1/2 h-full w-0.5 bg-amber-200 transform -translate-x-1/2 hidden md:block"></div>
+        
+        <!-- Itens da linha do tempo -->
+        <div class="mb-12">
+          <div class="flex flex-col md:flex-row items-center md:items-start relative">
+            <div class="md:w-1/2 order-2 md:pl-12 mb-6 md:mb-0">
+              <div class="bg-white p-6 rounded-lg shadow-md inline-block max-w-md">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Expansão para o Mundo Árabe (Século XV)</h3>
+                <p class="text-gray-600">
+                  O café chegou à Península Arábica, onde começou a ser torrado e moído como
+                  conhecemos hoje. Meca teve suas primeiras casas de café, chamadas de
+                  "qahveh khaneh", que se tornaram centros de atividade social.
+                </p>
+              </div>
+            </div>
+            <div class="hidden md:block absolute left-1/2 -ml-4 mt-8 w-8 h-8 rounded-full bg-amber-600 border-4 border-amber-200 z-10"></div>
+            <div class="md:w-1/2 order-1 md:pr-12">
+              <div class="h-64 bg-gray-100 rounded-lg overflow-hidden">
+                <img src="img/arabian.jpg" alt="Antiga casa de café árabe" class="w-full h-full object-cover" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-12">
+          <div class="flex flex-col md:flex-row items-center md:items-start relative">
+            <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 text-right">
+              <div class="bg-white p-6 rounded-lg shadow-md inline-block max-w-md">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Chegada à Europa (Século XVII)</h3>
+                <p class="text-gray-600">
+                  O café chegou a Veneza em 1615, apesar de inicialmente ser visto com
+                  desconfiança pela Igreja. O Papa Clemente VIII provou e aprovou a bebida,
+                  dando início à proliferação de cafeterias por todo o continente.
+                </p>
+              </div>
+            </div>
+            <div class="hidden md:block absolute left-1/2 -ml-4 mt-8 w-8 h-8 rounded-full bg-amber-600 border-4 border-amber-200 z-10"></div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="h-64 bg-gray-100 rounded-lg overflow-hidden">
+                <img src="img/europe.jpg" alt="Antiga cafeteria em Veneza" class="w-full h-full object-cover" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-12">
+          <div class="flex flex-col md:flex-row items-center md:items-start relative">
+            <div class="md:w-1/2 order-2 md:pl-12 mb-6 md:mb-0">
+              <div class="bg-white p-6 rounded-lg shadow-md inline-block max-w-md">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Cultivo nas Américas (Século XVIII)</h3>
+                <p class="text-gray-600">
+                  Em 1727, o sargento-major Francisco de Melo Palheta levou mudas de café
+                  da Guiana Francesa para o Brasil, iniciando o que se tornaria a maior
+                  indústria cafeeira do mundo.
+                </p>
+              </div>
+            </div>
+            <div class="hidden md:block absolute left-1/2 -ml-4 mt-8 w-8 h-8 rounded-full bg-amber-600 border-4 border-amber-200 z-10"></div>
+            <div class="md:w-1/2 order-1 md:pr-12">
+              <div class="h-64 bg-gray-100 rounded-lg overflow-hidden">
+                <img src="img/americas.webp" alt="Plantações de café no Brasil colonial" class="w-full h-full object-cover" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <div class="flex flex-col md:flex-row items-center md:items-start relative">
+            <div class="md:w-1/2 md:pr-12 mb-6 md:mb-0 text-right">
+              <div class="bg-white p-6 rounded-lg shadow-md inline-block max-w-md">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Cultura Moderna do Café</h3>
+                <p class="text-gray-600">
+                  No século XX, o café se tornou um produto global, com o surgimento de
+                  grandes redes de cafeterias e a valorização dos cafés especiais. Hoje, é
+                  a segunda bebida mais consumida no mundo, atrás apenas da água.
+                </p>
+              </div>
+            </div>
+            <div class="hidden md:block absolute left-1/2 -ml-4 mt-8 w-8 h-8 rounded-full bg-amber-600 border-4 border-amber-200 z-10"></div>
+            <div class="md:w-1/2 md:pl-12">
+              <div class="h-64 bg-gray-100 rounded-lg overflow-hidden">
+                <img src="img/modern.jpg" alt="Cafeteria moderna movimentada" class="w-full h-full object-cover" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção: Contato -->
+  <section id="contato" class="py-16 bg-gray-900 text-white">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Entre em Contato</h2>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+          Tem dúvidas ou sugestões? Adoraríamos ouvir você!
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Formulário de contato -->
+        <div class="bg-gray-800 p-8 rounded-xl shadow-lg">
+          <form id="contact-form" class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Nome</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent text-white placeholder-gray-400"
+                placeholder="Seu nome completo"
+              >
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent text-white placeholder-gray-400"
+                placeholder="seu@email.com"
+              >
+            </div>
+            
+            <div>
+              <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Assunto</label>
+              <select
+                id="subject"
+                name="subject"
+                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent text-white"
+              >
+                <option value="" disabled selected>Selecione um assunto</option>
+                <option value="feedback">Feedback</option>
+                <option value="partnership">Parceria</option>
+                <option value="press">Imprensa</option>
+                <option value="other">Outro</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Mensagem</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent text-white placeholder-gray-400"
+                placeholder="Escreva sua mensagem aqui..."
+              ></textarea>
+            </div>
+            
+            <div class="pt-2">
+              <button
+                type="submit"
+                class="w-full px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+              >
+                Enviar Mensagem
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Informações de contato -->
+        <div class="flex flex-col justify-between">
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-xl font-bold mb-4 text-amber-400">Informações</h3>
+              <p class="text-gray-300">
+                Estamos comprometidos em trazer o melhor conteúdo sobre café. Seja para parcerias,
+                sugestões ou apenas para compartilhar sua paixão por café, estamos aqui para ouvir.
+              </p>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div class="ml-3">
+                  <h4 class="text-sm font-medium text-gray-400">Email</h4>
+                  <a href="mailto:contato@lecafeportal.com" class="text-gray-300 hover:text-amber-400 transition-colors">contato@lecafeportal.com</a>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div class="ml-3">
+                  <h4 class="text-sm font-medium text-gray-400">Telefone</h4>
+                  <a href="tel:+5511999999999" class="text-gray-300 hover:text-amber-400 transition-colors">+55 (11) 99999-9999</a>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="flex-shrink-0 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div class="ml-3">
+                  <h4 class="text-sm font-medium text-gray-400">Endereço</h4>
+                  <p class="text-gray-300">Rua do Café, 123 - Centro<br>São Paulo, SP - Brasil</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer simplificado -->
+  <footer class="bg-gray-950 text-gray-400 py-8">
+    <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-4 md:mb-0">
+          <img src="img/sign.png" alt="Logo Le Cafe" class="w-10 h-10 mr-3">
+          <span class="text-xl font-bold text-gray">Le Cafe</span>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-6">
+          <a href="#" class="hover:text-amber-400 transition-colors">Home</a>
+          <a href="#tipos-cafe" class="hover:text-amber-400 transition-colors">Tipos de Café</a>
+          <a href="#" class="hover:text-amber-400 transition-colors">História</a>
+          <a href="#contato" class="hover:text-amber-400 transition-colors">Contato</a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-6 pt-6 text-center text-sm">
+        <p>&copy; 2023 Le Cafe Portal. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script para a gamificação -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elementos da interface
+      const coffeeOptions = document.querySelectorAll('.coffee-option');
+      const methodOptions = document.querySelectorAll('.method-option');
+      const addonOptions = document.querySelectorAll('.addon-option');
+      const intensityRange = document.getElementById('intensity-range');
+      const coffeeResultName = document.getElementById('coffee-result-name');
+      const coffeeResultDesc = document.getElementById('coffee-result-desc');
+      const selectedAddons = document.getElementById('selected-addons');
+      const coffeeCup = document.getElementById('coffee-cup');
+      
+      // Dados para descrições
+      const coffeeData = {
+        arabica: {
+          name: 'Arábica',
+          descriptions: {
+            espresso: 'Sabor suave com notas frutadas e acidez equilibrada',
+            'french-press': 'Corpo médio com sabores complexos e aroma intenso',
+            'pour-over': 'Delicado com notas florais e final limpo'
+          }
+        },
+        robusta: {
+          name: 'Robusta',
+          descriptions: {
+            espresso: 'Encorpado com notas achocolatadas e creme persistente',
+            'french-press': 'Intenso com corpo pesado e final duradouro',
+            'pour-over': 'Amargor pronunciado com notas terrosas'
+          }
+        }
+      };
+      
+      // Estado atual
+      let currentCoffee = 'arabica';
+      let currentMethod = 'espresso';
+      let currentIntensity = 3;
+      let currentAddons = [];
+      
+      // Atualiza a visualização do café
+      function updateCoffeeView() {
+        // Atualiza nome e descrição
+        coffeeResultName.textContent = `${coffeeData[currentCoffee].name} ${currentMethod === 'espresso' ? 'Espresso' : currentMethod === 'french-press' ? 'French Press' : 'Pour Over'}`;
+        coffeeResultDesc.textContent = coffeeData[currentCoffee].descriptions[currentMethod];
+        
+        // Atualiza intensidade
+        const intensityIcons = document.querySelectorAll('#intensity-range ~ div div span');
+        intensityIcons.forEach((icon, index) => {
+          icon.className = index < currentIntensity ? 'text-amber-600 text-lg' : 'text-gray-300 text-lg';
+        });
+        
+        // Atualiza adicionais
+        selectedAddons.innerHTML = '';
+        if (currentAddons.length === 0) {
+          selectedAddons.innerHTML = '<span class="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded">Nenhum</span>';
+        } else {
+          currentAddons.forEach(addon => {
+            const addonSpan = document.createElement('span');
+            addonSpan.className = 'text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded';
+            addonSpan.textContent = addon === 'leite' ? 'Leite' : addon === 'acucar' ? 'Açúcar' : 'Canela';
+            selectedAddons.appendChild(addonSpan);
+          });
+        }
+        
+        // Efeito visual na xícara (opcional)
+        coffeeCup.classList.add('animate-pulse');
+        setTimeout(() => coffeeCup.classList.remove('animate-pulse'), 500);
+      }
+      
+      // Event listeners para os botões de tipo de café
+      coffeeOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          // Remove a classe active de todos
+          coffeeOptions.forEach(opt => opt.classList.remove('active', 'border-amber-200'));
+          coffeeOptions.forEach(opt => opt.classList.add('border-gray-200'));
+          
+          // Adiciona ao selecionado
+          this.classList.add('active', 'border-amber-200');
+          this.classList.remove('border-gray-200');
+          
+          // Atualiza estado
+          currentCoffee = this.dataset.value;
+          updateCoffeeView();
+        });
+      });
+      
+      // Event listeners para os métodos de preparo
+      methodOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          // Remove a classe active de todos
+          methodOptions.forEach(opt => opt.classList.remove('active', 'bg-amber-100', 'border-amber-300'));
+          methodOptions.forEach(opt => opt.classList.add('bg-gray-100', 'border-transparent'));
+          
+          // Adiciona ao selecionado
+          this.classList.add('active', 'bg-amber-100', 'border-amber-300');
+          this.classList.remove('bg-gray-100', 'border-transparent');
+          
+          // Atualiza estado
+          currentMethod = this.dataset.value;
+          updateCoffeeView();
+        });
+      });
+      
+      // Event listener para a intensidade
+      intensityRange.addEventListener('input', function() {
+        currentIntensity = parseInt(this.value);
+        updateCoffeeView();
+      });
+      
+      // Event listeners para adicionais
+      addonOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          const addon = this.dataset.addon;
+          const index = currentAddons.indexOf(addon);
+          
+          // Alterna o estado do adicional
+          if (index === -1) {
+            currentAddons.push(addon);
+            this.classList.add('bg-amber-100');
+          } else {
+            currentAddons.splice(index, 1);
+            this.classList.remove('bg-amber-100');
+          }
+          
+          updateCoffeeView();
+        });
+      });
+      
+      // Inicializa a visualização
+      updateCoffeeView();
+    });
+  </script>
+
+  <!-- Script para o menu mobile -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      mobileMenuButton.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+  </script>
 </body>
 </html>
